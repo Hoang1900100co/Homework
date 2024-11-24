@@ -1,0 +1,72 @@
+
+/* Base (Mobile-First) Styles */
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #dedede;
+    padding: 5px;
+    margin: 15px;
+    font-size: 25px;
+    font-family: Arial, sans-serif;
+}
+h1 {
+    text-align: center;
+    font-size: 1.95em;
+}
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+figure img {
+    width: 100%;
+    border: 5px solid blue;
+    border-radius: 35px;
+}
+
+/* Tablet View */
+@media (min-width: 772px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    figure img {
+        border-radius: 50%;
+    }
+    figure:last-child {
+        grid-column: span 2;
+    }
+}
+
+/* Large Screen View */
+@media (min-width: 992px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    figure:nth-child(3n) {
+        grid-column: span 2;
+    }
+    figure img {
+        border-radius: 0;
+    }
+}
+
+/* Prefers-Reduced-Motion */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #f5f5f5;
+    }
+    figure {
+        background-color: #333;
+        color: #ffdd57; /* Yellow-ish color */
+        border: 2px solid black;
+    }
+}
